@@ -13,7 +13,7 @@ describe('<LabelText />', () => {
   const wrapper = shallow(<LabelText {...props} />);
 
   it('renders without crashing', () => {
-    expect(wrapper);
+    expect(wrapper).toBeTruthy();
   });
 
   it('creates className from the type', () => {

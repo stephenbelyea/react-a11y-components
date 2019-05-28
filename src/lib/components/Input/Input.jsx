@@ -14,7 +14,12 @@ function Input({ id, allText, ...inputProps }) {
 
 Input.propTypes = {
   id: string.isRequired,
-  allText: inputTextType.isRequired
+  allText: inputTextType.isRequired,
+  type: string
+};
+
+Input.defaultProps = {
+  type: 'text'
 };
 
 export default Input;

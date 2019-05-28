@@ -2,35 +2,32 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Input from './Input';
+import { Input } from '.';
 
-function createTestText() {
-  return {
-    label: 'Foo',
-    placeholder: 'Foo Bar',
-    description: 'Bar'
-  };
-}
-
-function createTestProps(props) {
-  return {
-    id: 'foo',
-    allText: createTestText(),
-    value: 'bar',
-    onClick: jest.fn(),
-    ...props
-  };
-}
-
-let wrapper;
-const createWrapper = props => shallow(<Input {...props} />);
-beforeEach(() => {
-  const props = createTestProps();
-  wrapper = createWrapper(props);
-});
+const props = {
+  id: 'foo',
+  allText: {
+    label: 'Foo'
+  }
+};
 
 describe('<Input />', () => {
+  const wrapper = shallow(<Input {...props} />);
+
   it('renders without crashing', () => {
-    expect(wrapper);
+    expect(wrapper).toBeTruthy();
+  });
+
+  it('contains an input element', () => {
+    expect(wrapper.exists('input')).toBe(true);
+  });
+
+  it('defaults the input type to text', () => {
+    expect(wrapper.exists('input[type="text"]')).toBe(true);
+  });
+
+  it('sets the input type when one is passed', () => {
+    const emailWrapper = shallow(<Input type="email" {...props} />);
+    expect(emailWrapper.exists('input[type="email"]')).toBe(true);
   });
 });
