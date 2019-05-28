@@ -3,28 +3,28 @@ import { shallow } from 'enzyme';
 
 import { LabelText } from '.';
 
-const props = {
-  type: 'foo',
-  text: 'bar'
-};
-
 describe('<LabelText />', () => {
-  const wrapper = shallow(<LabelText {...props} />);
+  const wrapper = shallow(<LabelText type="foo">Foo</LabelText>);
 
   it('renders without crashing', () => {
     expect(wrapper).toBeTruthy();
   });
 
   it('creates className from the type', () => {
-    expect(wrapper.hasClass(`input-${props.type}`)).toBe(true);
+    expect(wrapper.hasClass('label-text-foo')).toBe(true);
   });
 
-  it('contains the passed text', () => {
-    expect(wrapper.text()).toBe(props.text);
+  it('contains any child text', () => {
+    expect(wrapper.text()).toBe('Foo');
   });
 
-  it('returns null when no text is passed', () => {
-    const nullWrapper = shallow(<LabelText type={props.type} />);
-    expect(nullWrapper.isEmptyRender()).toBe(true);
+  it('contains any child element', () => {
+    const childWrapper = shallow(
+      <LabelText type="bar">
+        <small>Bar</small>
+      </LabelText>
+    );
+    expect(childWrapper.exists('small')).toBe(true);
+    expect(childWrapper.find('small').text()).toBe('Bar');
   });
 });

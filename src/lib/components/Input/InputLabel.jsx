@@ -3,14 +3,26 @@ import { string } from 'prop-types';
 import { inputTextType } from '../../types';
 import { LabelText } from '.';
 
+function getLabelTextChildren({ label, error, description }) {
+  return [
+    { type: 'label', value: label },
+    { type: 'description', value: description || null },
+    { type: 'error', value: error || null }
+  ];
+}
+
 function InputLabel({ allText, ...labelProps }) {
-  const { label, error, description } = allText;
   return (
     // eslint-disable-next-line
     <label {...labelProps}>
-      <LabelText type="label" text={label} />
-      <LabelText type="error" text={error} />
-      <LabelText type="description" text={description} />
+      {getLabelTextChildren(allText).map(({ type, value }) => {
+        if (!value) return null;
+        return (
+          <LabelText key={type} type={type}>
+            {value}
+          </LabelText>
+        );
+      })}
     </label>
   );
 }

@@ -1,18 +1,13 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, node } from 'prop-types';
 
-function LabelText({ type, text }) {
-  if (!text) return null;
-  return <span className={`input-${type}`}>{text}</span>;
+function LabelText({ type, ...props }) {
+  return <span className={`label-text-${type}`} {...props} />;
 }
 
 LabelText.propTypes = {
-  type: string.isRequired,
-  text: string
-};
-
-LabelText.defaultProps = {
-  text: ''
+  children: node.isRequired,
+  type: string.isRequired
 };
 
 export default LabelText;
