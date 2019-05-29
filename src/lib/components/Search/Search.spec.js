@@ -26,4 +26,9 @@ describe('<Search />', () => {
   it('marks the form with a search role', () => {
     expect(wrapper.exists('form[role="search"]')).toBe(true);
   });
+
+  it('calls onSubmit when the form is submitted', () => {
+    wrapper.find('form').simulate('submit');
+    expect(props.onSubmit).toBeCalled();
+  });
 });
