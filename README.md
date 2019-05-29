@@ -1,4 +1,6 @@
-# react-a11y-components
+# React A11y (Accessibility) Patterns
+
+Assorted UI patterns, built with inclusivity and accessibility compliance in mind.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
