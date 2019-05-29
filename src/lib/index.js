@@ -1,1 +1,1 @@
-export { Input, InputLabel, LabelText } from './components';
+export { Input, InputLabel, LabelText, Button, Search } from './components';

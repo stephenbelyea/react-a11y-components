@@ -5,7 +5,7 @@ import { Input } from '.';
 
 const props = {
   id: 'foo',
-  allText: {
+  inputText: {
     label: 'Foo'
   }
 };

@@ -3,10 +3,10 @@ import { string } from 'prop-types';
 import { inputTextType } from '../../types';
 import { InputLabel } from '.';
 
-function Input({ id, allText, ...inputProps }) {
+function Input({ id, inputText, ...inputProps }) {
   return (
     <div className="input">
-      <InputLabel htmlFor={id} allText={allText} />
+      <InputLabel htmlFor={id} inputText={inputText} />
       <input id={id} {...inputProps} />
     </div>
   );
@@ -14,7 +14,7 @@ function Input({ id, allText, ...inputProps }) {
 
 Input.propTypes = {
   id: string.isRequired,
-  allText: inputTextType.isRequired,
+  inputText: inputTextType.isRequired,
   type: string
 };
 

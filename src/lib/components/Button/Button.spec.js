@@ -3,15 +3,19 @@ import { shallow } from 'enzyme';
 
 import Button from './Button';
 
+const props = {
+  label: 'Foo'
+};
+
 describe('<Button />', () => {
-  const wrapper = shallow(<Button>Foo</Button>);
+  const wrapper = shallow(<Button {...props} />);
 
   it('renders without crashing', () => {
     expect(wrapper).toBeTruthy();
   });
 
-  it('contains an button element', () => {
-    expect(wrapper.exists('button')).toBe(true);
+  it('returns a button element', () => {
+    expect(wrapper.type()).toBe('button');
   });
 
   it('defaults the button type to button', () => {
@@ -19,7 +23,7 @@ describe('<Button />', () => {
   });
 
   it('sets the button type when one is passed', () => {
-    const submitWrapper = shallow(<Button type="submit">Bar</Button>);
+    const submitWrapper = shallow(<Button type="submit" {...props} />);
     expect(submitWrapper.exists('button[type="submit"]')).toBe(true);
   });
 
@@ -28,12 +32,8 @@ describe('<Button />', () => {
   });
 
   it('contains any child element', () => {
-    const childWrapper = shallow(
-      <Button>
-        <span>Bar</span>
-      </Button>
-    );
-    expect(childWrapper.exists('span')).toBe(true);
-    expect(childWrapper.find('span').text()).toBe('Bar');
+    const childWrapper = shallow(<Button label={<span>Bar</span>} />).find('span');
+    expect(childWrapper.exists()).toBe(true);
+    expect(childWrapper.text()).toBe('Bar');
   });
 });

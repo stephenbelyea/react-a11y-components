@@ -1,13 +1,14 @@
 import React from 'react';
-import { string, node } from 'prop-types';
+import { string } from 'prop-types';
+import { labelType } from '../../types';
 
-function Button(props) {
+function Button({ label, ...buttonProps }) {
   // eslint-disable-next-line react/button-has-type
-  return <button {...props} />;
+  return <button {...buttonProps}>{label}</button>;
 }
 
 Button.propTypes = {
-  children: node.isRequired,
+  label: labelType.isRequired,
   type: string
 };
 

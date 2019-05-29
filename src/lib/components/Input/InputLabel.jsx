@@ -11,11 +11,11 @@ function getLabelTextChildren({ label, error, description }) {
   ];
 }
 
-function InputLabel({ allText, ...labelProps }) {
+function InputLabel({ inputText, ...labelProps }) {
   return (
     // eslint-disable-next-line
     <label {...labelProps}>
-      {getLabelTextChildren(allText).map(({ type, value }) => {
+      {getLabelTextChildren(inputText).map(({ type, value }) => {
         if (!value) return null;
         return (
           <LabelText key={type} type={type}>
@@ -29,7 +29,7 @@ function InputLabel({ allText, ...labelProps }) {
 
 InputLabel.propTypes = {
   htmlFor: string.isRequired,
-  allText: inputTextType.isRequired
+  inputText: inputTextType.isRequired
 };
 
 export default InputLabel;

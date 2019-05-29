@@ -5,7 +5,7 @@ import { InputLabel } from '.';
 
 const props = {
   htmlFor: 'foo',
-  allText: {
+  inputText: {
     label: 'Foo'
   }
 };

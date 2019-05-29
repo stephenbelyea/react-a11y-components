@@ -1,9 +1,11 @@
-import { shape, string } from 'prop-types';
+import { shape, string, element, oneOfType } from 'prop-types';
+
+export const labelType = oneOfType([string, element]);
 
 export const inputTextType = shape({
-  label: string.isRequired,
-  description: string,
-  error: string
+  label: labelType.isRequired,
+  description: labelType,
+  error: labelType
 });
 
-export default { inputTextType };
+export default { labelType, inputTextType };
