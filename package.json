@@ -10,16 +10,16 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "bundle": "npx rollup -c"
+    "start": "start-storybook",
+    "build": "npx rollup -c",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "eslintIgnore": ["dist/*"],
+  "eslintIgnore": [
+    "dist/*"
+  ],
   "babel": {
     "presets": [
       "@babel/preset-react"
@@ -38,7 +38,10 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/react": "^5.1.9",
+    "babel-loader": "^8.0.6",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "rollup": "^1.17.0",
