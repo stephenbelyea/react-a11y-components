@@ -23,6 +23,15 @@ describe("<Button />", () => {
     expect(submitWrapper.exists('button[type="submit"]')).toBe(true);
   });
 
+  it("sets the hollow style by default", () => {
+    expect(wrapper.hasClass("hollow")).toBe(true);
+  });
+
+  it("sets the hollow style by default", () => {
+    const solidWrapper = shallow(<Button solid>Foo</Button>);
+    expect(solidWrapper.hasClass("solid")).toBe(true);
+  });
+
   it("contains any child text", () => {
     expect(wrapper.text()).toBe("Foo");
   });

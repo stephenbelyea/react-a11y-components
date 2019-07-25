@@ -1,23 +1,11 @@
 import React from "react";
-import { string } from "prop-types";
-import stylish from "@dmamills/stylish";
+import { string, bool } from "prop-types";
+import "./Button.css";
 
-const styles = stylish({
-  border: "solid .1rem royalblue",
-  padding: ".5rem 1rem",
-  "font-weight": "bold",
-  background: "royalblue",
-  "border-radius": ".25rem",
-  color: "#fff",
-  cursor: "pointer",
-  transition: "background 150ms, border 150ms",
-  ":hover, :focus": {
-    background: "navy",
-    "border-color": "navy"
-  }
-});
-
-function Button({ children, ...props }) {
+function Button({ solid, className, children, ...props }) {
+  const styles = solid
+    ? `rap-button solid ${className}`
+    : `rap-button hollow ${className}`;
   return (
     <button {...props} className={styles}>
       {children}
@@ -26,11 +14,15 @@ function Button({ children, ...props }) {
 }
 
 Button.propTypes = {
-  type: string
+  type: string,
+  solid: bool,
+  className: string
 };
 
 Button.defaultProps = {
-  type: "button"
+  type: "button",
+  solid: false,
+  className: ""
 };
 
 export default Button;

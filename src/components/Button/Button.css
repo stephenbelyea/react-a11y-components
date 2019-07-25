@@ -1,0 +1,29 @@
+.rap-button {
+  border: solid 0.1rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: border 150ms, background 150ms, color 150ms;
+}
+
+.rap-button.hollow {
+  color: dodgerblue;
+}
+
+.rap-button.hollow:hover,
+.rap-button.hollow:focus {
+  color: navy;
+}
+
+.rap-button.solid {
+  color: white;
+  background: dodgerblue;
+  border-color: dodgerblue;
+}
+
+.rap-button.solid:hover,
+.rap-button.solid:focus {
+  background: navy;
+  border-color: navy;
+}
